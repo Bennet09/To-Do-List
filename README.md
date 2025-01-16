@@ -26,7 +26,7 @@ todo-app/ ├── server.js ├── index.html ├── style.css ├──
 node server.js
 Open index.html in your browser or serve it through a local server
 
-The application will be running at http://127.0.0.1:3000
+## The application will be running at http://127.0.0.1:3000
 
 API Endpoints
 GET /todos - Retrieve all todos

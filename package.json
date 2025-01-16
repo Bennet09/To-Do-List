@@ -12,5 +12,13 @@
   "dependencies": {
     "sqlite3": "^5.1.7"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bennet09/To-do-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bennet09/To-do-list/issues"
+  },
+  "homepage": "https://github.com/Bennet09/To-do-list#readme"
 }

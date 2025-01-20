@@ -82,6 +82,10 @@ button:hover {
     padding: 10px;
     border-bottom: 1px solid #eee;
     gap: 10px;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
 }
 
 .todo-item.completed span {

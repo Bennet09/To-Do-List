@@ -17,21 +17,28 @@ const server = http.createServer((req, res) => {
   const method = req.method;
 
   if (method === 'GET' && url === '/todos') {
-    // List all todos
     res.statusCode = 200;
     res.end(JSON.stringify(todos));
   } 
   else if (method === 'POST' && url === '/todos') {
-    // Add new todo
     let body = '';
     req.on('data', chunk => {
       body += chunk.toString();
     });
     req.on('end', () => {
       const newTodo = JSON.parse(body);
+      // Trim and limit the title to 100 characters
+      const trimmedTitle = newTodo.title.trim().substring(0, 100);
+      
+      if (trimmedTitle.length === 0) {
+        res.statusCode = 400;
+        res.end(JSON.stringify({ message: 'Todo title cannot be empty' }));
+        return;
+      }
+
       const todo = {
         id: Date.now(),
-        title: newTodo.title,
+        title: trimmedTitle,
         completed: false
       };
       todos.push(todo);
@@ -39,15 +46,14 @@ const server = http.createServer((req, res) => {
       res.end(JSON.stringify(todo));
     });
   }
+  // Rest of the code remains the same
   else if (method === 'DELETE' && url.startsWith('/todos/')) {
-    // Remove todo
     const id = parseInt(url.split('/')[2]);
     todos = todos.filter(todo => todo.id !== id);
     res.statusCode = 200;
     res.end(JSON.stringify({ message: 'Todo deleted' }));
   }
   else if (method === 'PUT' && url.startsWith('/todos/')) {
-    // Toggle todo completion
     const id = parseInt(url.split('/')[2]);
     const todo = todos.find(todo => todo.id === id);
     

@@ -69,8 +69,9 @@ const server = http.createServer((req, res) => {
   }
   else {
     res.statusCode = 404;
-    res.end(JSON.stringify({ message: 'Route not found' }));
+    res.end(JSON.stringify({ message: 'Hello there 👋, the server is running' }));
   }
+  
 });
 
 server.listen(port, hostname, () => {

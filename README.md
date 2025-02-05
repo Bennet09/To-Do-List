@@ -17,7 +17,7 @@ A simple and efficient todo list application with a Node.js backend and vanilla 
 - No external dependencies required
 
 ## Project Structure
-todo-app/ ├── server.js ├── index.html ├── style.css ├── script.js └── README.md
+    todo-app/ ├── server.js ├── index.html ├── style.css ├── script.js └── README.md
 
 ## Getting Started
 
